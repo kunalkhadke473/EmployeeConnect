@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<EmployeeConnect.Models.Employee>
+
+<div class="container-md">
+    <br>
+    <h1 style="font-size: 36px; font-weight: bold; background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+    Welcome to EmployeeConnect
+    </h1>
+    <br>
+    <div class="table-responsive text-center">
+        <table class="table table-bordered table-striped">
+            <thead>
+        <tr class="bg-info">
+            <td>ID</td>
+            <td>Name</td>
+            <td>Address</td>
+            <td></td>
+            <td></td>
+
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+        <tr>
+            <td>@emp.Id</td>
+            <td>@emp.Name</td>
+            <td>@emp.Address</td>
+            <td>
+                <a class="btn btn-info" href="/Home/UpdateEmpData/@emp.Id">Edit</a>
+            </td>
+            <td>
+               <a class="btn btn-warning" href="/Home/DeleteEmp/@emp.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+</div>
+    <div class="container-sm pb-2">
+        <a href="/Home/InsertEmpData" class="btn btn-primary">Register Employee</a>
+    </div>
+</div>
+
